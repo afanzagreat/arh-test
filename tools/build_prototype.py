@@ -28,6 +28,10 @@ def intro(title, lead=None):
 def cta():
     return '<section class="wrap cta"><div class="cta-box">' + text('quoteTitle', 'h2') + '<div class="actions centered"><a class="btn" href="/quote.html" data-i18n="navQuote"></a></div></div></section>'
 
+def studio_spark():
+    # Pure decoration: no pointer listeners, coordinates, canvas or user input.
+    return '<div class="wrap studio-signoff" aria-hidden="true"><span class="spark-rule"></span><div class="studio-spark"><span class="spark-halo"></span><span class="spark-star"></span><span class="spark-orbit"><i></i></span></div><span class="spark-rule"></span></div>'
+
 def main():
     home = node((ROOT / 'tools/prototype-templates/home.html').read_text())
     work = node((ROOT / 'tools/prototype-templates/works.html').read_text())
@@ -84,6 +88,7 @@ def main():
             languages = ''.join(f'<option value="{l}" lang="{l}"'+(' selected' if l==lang else '')+f'>{label}</option>' for l,label in [('en','English'),('ar','العربية'),('fr','Français'),('hi','हिन्दी')])
             html = f'''<!doctype html><html lang="{lang}" dir="{'rtl' if lang=='ar' else 'ltr'}" data-page-kind="{page}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title></title><meta name="robots" content="noindex,nofollow,noarchive"><meta name="description" data-i18n-content="pageDescription"><meta http-equiv="Content-Security-Policy" content="form-action 'none'; connect-src 'none'; frame-src 'none'"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="{fonts}"><link rel="stylesheet" href="/assets/prototype-base.css"><link rel="stylesheet" href="/assets/i18n.css"><link rel="stylesheet" href="/assets/prototype.css"></head><body><a class="skip-link" href="#mainContent" data-i18n="navHome"></a><div class="announce prototype-banner" data-i18n="prototypeBanner"></div><header><nav class="wrap"><a class="logo" href="{route(lang,'home')}">ARH<b>.</b></a><div class="links">{nav}</div><div class="controls"><select id="languageSelect" class="language-select" data-i18n-aria-label="languageLabel">{languages}</select><button id="themeBtn" class="icon-btn" type="button" data-i18n-aria-label="aria_themeBtn">◐</button><a class="btn nav-quote" href="{route(lang,'quote')}" data-i18n="navQuote"></a></div><button id="menuBtn" type="button" class="menu" aria-expanded="false" aria-controls="mobileNav" data-i18n-aria-label="aria_menuBtn">☰</button></nav></header><div class="mobile-nav" id="mobileNav" aria-hidden="true"><button type="button" class="close" id="closeMenu" data-i18n-aria-label="aria_closeMenu">×</button>{nav}<a href="{route(lang,'quote')}" data-i18n="navQuote"></a></div><main id="mainContent">{body}</main><footer class="wrap"><span>© 2026 ARH Digital.</span><a href="{route(lang,'quote')}" data-i18n="navQuote"></a><span data-i18n="prototypeBanner"></span></footer><script src="/assets/{page}-prototype-locales.js"></script><script src="/assets/i18n.js"></script><script src="/assets/contact-form.js"></script><script src="/assets/prototype.js"></script></body></html>'''
             soup = node(html)
+            soup.select_one('footer').insert_before(node(studio_spark()))
             for el in soup.select('[data-i18n]'):
                 el.clear()
                 fragment = node(strings[lang][el['data-i18n']])

@@ -15,3 +15,16 @@ html[dir=rtl] .case-teaser,html[dir=rtl] .about-layout,html[dir=rtl] .case-colum
 @media(max-width:900px){.case-teaser,.about-layout,.contact-grid{grid-template-columns:1fr;gap:32px}.case-columns{grid-template-columns:1fr}.case-columns article{border-top:1px solid var(--line);padding-top:22px}.page-intro{padding-top:55px}.hero{min-height:auto}header .controls .nav-quote{display:none}.mobile-nav{overflow-y:auto}.mobile-nav.open{display:flex}.case-teaser{padding-block:50px}.about-layout{padding-bottom:60px}}
 @media(max-width:600px){.page-intro h1{font-size:clamp(43px,12vw,68px);letter-spacing:-2px}.hero h1{font-size:clamp(45px,12.5vw,68px)}.hero-art{max-width:100%}.shortcut{padding-bottom:30px}.shortcut .btn{width:100%}.case-teaser h2{font-size:43px}.case-columns{margin-top:35px;gap:20px}#contact{padding-top:45px}.controls{gap:5px}header nav{gap:8px}.language-select{max-width:115px}.logo{font-size:28px}.icon-btn{width:36px;height:36px}.prototype-banner{font-size:10px;padding-inline:10px}.cta-box{box-shadow:5px 6px 0 var(--ink)}.case-image{box-shadow:5px 6px 0 var(--ink)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* A small studio signature, kept in the document flow and away from controls. */
+.studio-signoff{display:flex;align-items:center;justify-content:center;gap:28px;padding:8px 0 30px;pointer-events:none}
+.spark-rule{height:1px;flex:1;max-width:150px;background:linear-gradient(90deg,transparent,var(--line))}
+.spark-rule:last-child{transform:rotate(180deg)}
+.studio-spark{position:relative;flex:none;width:94px;height:94px;isolation:isolate}
+.spark-halo{position:absolute;inset:12px;border:1px solid var(--ink);border-radius:50%;background:var(--yellow);box-shadow:3px 4px 0 var(--ink)}
+.spark-star{position:absolute;inset:25px;background:#111827;clip-path:polygon(50% 0,61% 35%,85% 15%,65% 40%,100% 50%,65% 60%,85% 85%,60% 65%,50% 100%,40% 65%,15% 85%,35% 60%,0 50%,35% 40%,15% 15%,40% 35%);transform:rotate(-12deg)}
+.spark-orbit{position:absolute;inset:0;border:1px solid var(--orange);border-radius:50%;transform:rotate(-24deg);animation:spark-drift 24s linear infinite}
+.spark-orbit i{position:absolute;left:8px;top:8px;width:12px;height:12px;border:2px solid var(--ink);border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px var(--cream)}
+@keyframes spark-drift{to{transform:rotate(336deg)}}
+@media(max-width:600px){.studio-signoff{gap:20px;padding:0 0 24px}.studio-spark{width:78px;height:78px}.spark-halo{inset:10px}.spark-star{inset:22px}.spark-orbit i{width:10px;height:10px;left:7px;top:7px}}
+@media(prefers-reduced-motion:reduce){.spark-orbit{animation:none!important}}
