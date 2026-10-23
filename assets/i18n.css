@@ -75,7 +75,7 @@ html:not(:lang(en)) .art-circle { font-size: 15px; }
   border: 0; border-radius: 50%; color: inherit;
 }
 .nav-instagram svg { display: block; }
-.nav-instagram:hover { color: var(--orange); }
+.nav-instagram:hover { color: var(--orange-text); }
 .nav-instagram:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
 @media (max-width: 1100px) {
   #mobileNav .nav-contact { border-bottom: 1px solid var(--line); }
@@ -85,4 +85,4 @@ html:not(:lang(en)) .art-circle { font-size: 15px; }
 }
 /* Footer privacy-policy link. */
 .privacy-link { text-decoration: underline; text-underline-offset: 3px; }
-.privacy-link:hover { color: var(--orange); }
+.privacy-link:hover { color: var(--orange-text); }
