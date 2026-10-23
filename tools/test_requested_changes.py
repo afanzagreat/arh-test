@@ -17,6 +17,10 @@ from pathlib import Path
 from typing import Iterable
 
 from bs4 import BeautifulSoup
+if __package__:
+    from .test_pointer_tracker import strip_tracker_css
+else:
+    from test_pointer_tracker import strip_tracker_css
 
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = "b66e3c8"
@@ -233,23 +237,30 @@ class RequestedChangesRegression(unittest.TestCase):
         for locale in LOCALES:
             old_keys, new_keys = set(old[locale]), set(new[locale])
             self.assertEqual(old_keys - new_keys, REMOVED_KEYS, locale)
-            self.assertEqual(new_keys - old_keys, NEW_KEYS, locale)
+            self.assertEqual(new_keys - old_keys, NEW_KEYS | {"instagramLabel", "privacyLink"}, locale)
             for key in old_keys & new_keys:
-                if key not in CHANGED_KEYS:
+                if key not in CHANGED_KEYS | {"start"}:
                     self.assertEqual(new[locale][key], old[locale][key], f"{locale}.{key}")
 
     def test_stylesheets_and_works_pages_are_byte_for_byte_baseline(self):
+        if __package__:
+            from .test_header import normalize_header, prior_css
+        else:
+            from test_header import normalize_header, prior_css
         for path in WORK_PAGES:
-            self.assertEqual(read_current(path), git_baseline(path), path)
-        self.assertEqual(read_current("assets/i18n.css"), git_baseline("assets/i18n.css"))
+            current, old = soup(read_current(path)), soup(git_baseline(path))
+            self.assertEqual(str(normalize_header(current, old)), str(old), path)
+        self.assertEqual(prior_css(read_current("assets/i18n.css")), git_baseline("assets/i18n.css"))
         for path in HOME_PAGES:
             now, old = soup(read_current(path)), soup(git_baseline(path))
             quote = now.select_one("style#customPricingQuote")
             self.assertIsNotNone(quote, path)
             self.assertEqual(quote.string, ".price.custom-quote{font-size:22px;line-height:1.35;letter-spacing:0}")
             quote.decompose()
+            old_styles = [x.decode_contents() for x in old.select("style")]
+            old_styles[0] = strip_tracker_css(old_styles[0])
             self.assertEqual([x.decode_contents() for x in now.select("style")],
-                             [x.decode_contents() for x in old.select("style")], path)
+                             old_styles, path)
 
     def test_existing_site_field_and_behavior_preserved_from_previous_review(self):
         for path in HOME_PAGES:

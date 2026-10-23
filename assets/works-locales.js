@@ -4,7 +4,7 @@ window.ARH_LOCALES = {
     "works": "Our Works",
     "pricing": "Pricing",
     "contact": "Contact",
-    "start": "Start a project ↗",
+    "start": "Get a quote ↗",
     "worksTitle": "OUR WORKS.",
     "worksLead": "One studio, bold ideas, and businesses that trusted us early. Here is what we have built so far.",
     "liveProject": "LIVE PROJECT",
@@ -32,14 +32,16 @@ window.ARH_LOCALES = {
     "menuLabel": "Open menu",
     "previewTitle": "Shabibi Juice website preview",
     "previewNote": "If the preview is blocked, <a href=\"https://www.shabibi-juice.store\" target=\"_blank\" rel=\"noopener\">open the live site directly ↗</a>",
-    "strip": "RECENT WORK <span>✦</span> SHABIBI JUICE <span>✦</span> BUILT IN JEDDAH <span>✦</span>"
+    "strip": "RECENT WORK <span>✦</span> SHABIBI JUICE <span>✦</span> BUILT IN JEDDAH <span>✦</span>",
+    "instagramLabel": "ARH on Instagram (opens in a new tab)",
+    "privacyLink": "Privacy Policy"
   },
   "ar": {
     "services": "الخدمات",
     "works": "أعمالنا",
     "pricing": "الأسعار",
     "contact": "تواصل معنا",
-    "start": "ابدأ مشروعاً ↗",
+    "start": "اطلب عرض سعر ↗",
     "worksTitle": "أعمالنا.",
     "worksLead": "استوديو واحد، وأفكار جريئة، وأعمال وثقت بنا منذ البداية. إليك ما أنجزناه حتى الآن.",
     "liveProject": "مشروع منشور",
@@ -67,14 +69,16 @@ window.ARH_LOCALES = {
     "menuLabel": "فتح القائمة",
     "previewTitle": "معاينة موقع شبيبي جوس",
     "previewNote": "إذا تعذّرت المعاينة، <a href=\"https://www.shabibi-juice.store\" target=\"_blank\" rel=\"noopener\">افتح الموقع مباشرة ↗</a>",
-    "strip": "أحدث الأعمال <span>✦</span> شبيبي جوس <span>✦</span> صُنع في جدة <span>✦</span>"
+    "strip": "أحدث الأعمال <span>✦</span> شبيبي جوس <span>✦</span> صُنع في جدة <span>✦</span>",
+    "instagramLabel": "ARH على إنستغرام (يفتح في علامة تبويب جديدة)",
+    "privacyLink": "سياسة الخصوصية"
   },
   "fr": {
     "services": "Services",
     "works": "Nos réalisations",
     "pricing": "Tarifs",
     "contact": "Contact",
-    "start": "Démarrer un projet ↗",
+    "start": "Demander un devis ↗",
     "worksTitle": "NOS RÉALISATIONS.",
     "worksLead": "Un studio, des idées audacieuses et des entreprises qui nous ont fait confiance dès le début. Voici nos réalisations.",
     "liveProject": "PROJET EN LIGNE",
@@ -102,14 +106,16 @@ window.ARH_LOCALES = {
     "menuLabel": "Ouvrir le menu",
     "previewTitle": "Aperçu du site Shabibi Juice",
     "previewNote": "Si l’aperçu est bloqué, <a href=\"https://www.shabibi-juice.store\" target=\"_blank\" rel=\"noopener\">ouvrez le site directement ↗</a>",
-    "strip": "RÉALISATIONS RÉCENTES <span>✦</span> SHABIBI JUICE <span>✦</span> CRÉÉ À DJEDDAH <span>✦</span>"
+    "strip": "RÉALISATIONS RÉCENTES <span>✦</span> SHABIBI JUICE <span>✦</span> CRÉÉ À DJEDDAH <span>✦</span>",
+    "instagramLabel": "ARH sur Instagram (nouvel onglet)",
+    "privacyLink": "Politique de confidentialité"
   },
   "hi": {
     "services": "सेवाएं",
     "works": "हमारा काम",
     "pricing": "मूल्य",
     "contact": "संपर्क",
-    "start": "प्रोजेक्ट शुरू करें ↗",
+    "start": "कोटेशन पाएं ↗",
     "worksTitle": "हमारा काम।",
     "worksLead": "एक स्टूडियो, दमदार विचार और वे व्यवसाय जिन्होंने शुरुआत में हम पर भरोसा किया। अब तक हमने यह बनाया है।",
     "liveProject": "लाइव प्रोजेक्ट",
@@ -137,6 +143,8 @@ window.ARH_LOCALES = {
     "menuLabel": "मेन्यू खोलें",
     "previewTitle": "शबीबी जूस वेबसाइट का पूर्वावलोकन",
     "previewNote": "अगर पूर्वावलोकन नहीं खुलता, तो <a href=\"https://www.shabibi-juice.store\" target=\"_blank\" rel=\"noopener\">सीधे लाइव वेबसाइट खोलें ↗</a>",
-    "strip": "हाल का काम <span>✦</span> शबीबी जूस <span>✦</span> जेद्दा में बना <span>✦</span>"
+    "strip": "हाल का काम <span>✦</span> शबीबी जूस <span>✦</span> जेद्दा में बना <span>✦</span>",
+    "instagramLabel": "Instagram पर ARH (नए टैब में खुलेगा)",
+    "privacyLink": "गोपनीयता नीति"
   }
 };

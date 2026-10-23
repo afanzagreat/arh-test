@@ -29,16 +29,24 @@ TITLES = {
         'fr': 'Réalisations web | ARH Digital',
         'hi': 'वेब डिज़ाइन पोर्टफोलियो | ARH Digital',
     },
+    'privacy': {
+        'en': 'Privacy Policy | ARH Digital',
+        'ar': 'سياسة الخصوصية | ARH Digital',
+        'fr': 'Politique de confidentialité | ARH Digital',
+        'hi': 'गोपनीयता नीति | ARH Digital',
+    },
 }
+PAGES = {'home': 'index.html', 'works': 'works.html', 'privacy': 'privacy.html'}
+CATALOGS = {'home': 'home-locales.js', 'works': 'works-locales.js', 'privacy': 'privacy-locales.js'}
 
 
 def route(language, kind):
     prefix = '/' if language == 'en' else f'/{language}/'
-    return prefix + ('works.html' if kind == 'works' else '')
+    return prefix + ('' if kind == 'home' else PAGES[kind])
 
 
 def catalog(kind):
-    path = ROOT / 'assets' / ('home-locales.js' if kind == 'home' else 'works-locales.js')
+    path = ROOT / 'assets' / CATALOGS[kind]
     data = json.loads(re.search(r'=\s*({.*})\s*;', path.read_text(), re.S)[1])
     for language in LANGUAGES:
         data[language]['pageTitle'] = TITLES[kind][language]
@@ -72,6 +80,9 @@ def local_link(value, language):
     match = re.fullmatch(r'/?works\.html(#.*)?', value)
     if match:
         return route(language, 'works') + (match[1] or '')
+    match = re.fullmatch(r'/?privacy\.html(#.*)?', value)
+    if match:
+        return route(language, 'privacy') + (match[1] or '')
     return value
 
 
@@ -87,7 +98,7 @@ def structured_data(kind, language, strings, url):
     website = {'@type': 'WebSite', '@id': ORIGIN + '/#website', 'url': ORIGIN + '/',
                'name': 'ARH Digital', 'publisher': {'@id': studio['@id']},
                'inLanguage': list(LANGUAGES)}
-    page = {'@type': 'WebPage' if kind == 'home' else 'CollectionPage',
+    page = {'@type': 'CollectionPage' if kind == 'works' else 'WebPage',
             '@id': url + '#webpage', 'url': url, 'name': strings['pageTitle'],
             'description': strings['pageDescription'], 'inLanguage': language,
             'isPartOf': {'@id': website['@id']}, 'about': {'@id': studio['@id']}}
@@ -158,7 +169,7 @@ def build_page(source, kind, language, data):
     meta(soup, 'twitter:description', strings['pageDescription'])
     # Metadata and the runtime agree; no late English overwrite on locale URLs.
     meta(soup, 'robots', 'index, follow, max-image-preview:large')
-    if kind == 'home':
+    if kind in ('home', 'privacy'):
         for name in ('og:image:alt',):
             meta(soup, name, strings['ogImageAlt'], 'property')
         meta(soup, 'twitter:image:alt', strings['ogImageAlt'])
@@ -192,7 +203,7 @@ def build_page(source, kind, language, data):
 
 
 def main():
-    sources = {kind: (ROOT / filename).read_text() for kind, filename in [('home', 'index.html'), ('works', 'works.html')]}
+    sources = {kind: (ROOT / filename).read_text() for kind, filename in PAGES.items()}
     all_urls = []
     for kind, source in sources.items():
         data = catalog(kind)
