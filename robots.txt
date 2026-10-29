@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /tools/
-Sitemap: https://arhdesign.tech/sitemap.xml
+Disallow: /

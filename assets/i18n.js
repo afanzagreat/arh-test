@@ -6,8 +6,12 @@
   const root = document.documentElement;
   let current = supported.includes(root.lang) ? root.lang : 'en';
   function pagePath(language) {
-    const prefix = language === 'en' ? '/' : '/' + language + '/';
-    return prefix + ({ works: 'works.html', privacy: 'privacy.html' }[root.dataset.pageKind] || '');
+    const kind = root.dataset.pageKind;
+    const baseElement = document.querySelector('base');
+    const base = new URL(baseElement ? baseElement.href : '/', location.origin);
+    const prefix = language === 'en' ? '' : language + '/';
+    const page = ['services', 'packages', 'works', 'about', 'quote'].includes(kind) ? kind + '.html' : '';
+    return new URL(prefix + page || './', base).pathname;
   }
   function t(key) {
     return locales[current]?.[key] ?? locales.en?.[key] ?? key;

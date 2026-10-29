@@ -1,0 +1,20 @@
+{
+  "name": "arh-test",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public ARH V2 multilingual review site",
+  "scripts": {
+    "test": "node tools/test_i18n.cjs && node tools/test_contact_form.cjs && node tools/test_prototype.cjs",
+    "build": "python3 tools/build_prototype.py"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "@fontsource/hind": "^5.3.0",
+    "@fontsource/tajawal": "^5.3.0",
+    "gsap": "^3.15.0"
+  }
+}
