@@ -666,25 +666,48 @@
       const cursorLabel = cursor.querySelector('.cursor-label');
       if (finePointer.matches && !reduceMotion.matches) {
         root.classList.add('cursor-active');
-        let pointerX = -100, pointerY = -100, ringX = -100, ringY = -100, cursorFrame = 0;
+        let pointerX = -100, pointerY = -100, ringX = -100, ringY = -100, cursorFrame = 0, cursorIsVisible = false;
+        const scheduleCursorFrame = () => {
+          if (cursorFrame || document.visibilityState !== 'visible') return;
+          cursorFrame = window.requestAnimationFrame(renderCursor);
+        };
         const renderCursor = () => {
+          cursorFrame = 0;
+          if (document.visibilityState !== 'visible') return;
           ringX += (pointerX - ringX) * .22;
           ringY += (pointerY - ringY) * .22;
           cursorDot.style.transform = `translate3d(${pointerX}px,${pointerY}px,0) translate(-50%,-50%)`;
           cursorRing.style.transform = `translate3d(${ringX}px,${ringY}px,0) translate(-50%,-50%)`;
-          cursorFrame = window.requestAnimationFrame(renderCursor);
+          if (Math.abs(pointerX - ringX) > .1 || Math.abs(pointerY - ringY) > .1) scheduleCursorFrame();
         };
-        cursorFrame = window.requestAnimationFrame(renderCursor);
+        const stopCursorFrame = () => {
+          if (!cursorFrame) return;
+          window.cancelAnimationFrame(cursorFrame);
+          cursorFrame = 0;
+        };
+        const hideCursor = () => {
+          cursorIsVisible = false;
+          cursor.style.opacity = '0';
+          stopCursorFrame();
+        };
         document.addEventListener('pointermove', (event) => {
           if (event.pointerType && event.pointerType !== 'mouse') return;
-          pointerX = event.clientX; pointerY = event.clientY; cursor.style.opacity = '1';
+          pointerX = event.clientX; pointerY = event.clientY; cursorIsVisible = true; cursor.style.opacity = '1';
           const target = event.target.closest('[data-cursor]');
           const label = target ? target.dataset.cursor : '';
           cursorLabel.textContent = label;
           cursor.classList.toggle('is-active', Boolean(label));
+          scheduleCursorFrame();
         }, { passive: true });
-        document.addEventListener('pointerleave', () => { cursor.style.opacity = '0'; });
-        window.addEventListener('blur', () => { cursor.style.opacity = '0'; });
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState !== 'visible') {
+            stopCursorFrame();
+            return;
+          }
+          if (cursorIsVisible) scheduleCursorFrame();
+        });
+        document.addEventListener('pointerleave', hideCursor);
+        window.addEventListener('blur', hideCursor);
       }
 
       // Gentle magnetic pull on the main calls to action.
