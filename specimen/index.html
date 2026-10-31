@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>ARH Digital — Colour and type specimen</title>
+  <meta name="description" content="A six-way colour and type specimen using the existing Shabibi Juice case study copy.">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;display=swap">
+  <style>
+    @font-face {
+      font-family: "Newsreader";
+      src: url("./fonts/newsreader-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Instrument Serif";
+      src: url("./fonts/instrument-serif-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "DM Sans";
+      src: url("./fonts/dm-sans-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 1000;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: light;
+      --page-ink: #181B1A;
+      --page-secondary: #59615D;
+      --page-rule: #D9DEDB;
+      --page-max: 1440px;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      margin: 0;
+      background: #FFFFFF;
+      color: var(--page-ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(100% - 40px, var(--page-max));
+      margin-inline: auto;
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 20px;
+      border-bottom: 1px solid var(--page-rule);
+      color: var(--page-secondary);
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .wordmark {
+      color: var(--page-ink);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+    }
+
+    .wordmark span { color: inherit; }
+
+    .masthead p { margin: 0; text-align: right; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+      column-gap: clamp(28px, 6vw, 96px);
+      align-items: end;
+      padding-block: clamp(40px, 7vw, 88px) clamp(30px, 4vw, 54px);
+    }
+
+    .intro-kicker {
+      margin: 0 0 16px;
+      color: var(--page-secondary);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.65rem, 6vw, 5.4rem);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    h1 em { font-weight: 400; }
+
+    .intro-copy {
+      max-width: 430px;
+      margin: 0 0 4px;
+      color: var(--page-secondary);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .intro-copy strong {
+      color: var(--page-ink);
+      font-weight: 700;
+    }
+
+    .key {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-block: 1px solid var(--page-rule);
+      margin-bottom: 34px;
+    }
+
+    .key-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      min-height: 46px;
+      padding: 11px 14px 11px 0;
+      color: var(--page-secondary);
+      font-size: 0.76rem;
+    }
+
+    .key-item + .key-item {
+      border-left: 1px solid var(--page-rule);
+      padding-left: 14px;
+    }
+
+    .key-index {
+      color: var(--page-ink);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .specimens {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: clamp(18px, 2.4vw, 36px);
+      row-gap: 38px;
+      align-items: start;
+    }
+
+    .specimen {
+      --canvas: #F7F8F7;
+      --surface: #FFFFFF;
+      --ink: #181B1A;
+      --secondary: #59615D;
+      --rule: #D9DEDB;
+      --accent: #C73722;
+      --button-ink: #FFFFFF;
+      --display: "Newsreader", Georgia, serif;
+      --text: "General Sans", Arial, sans-serif;
+      min-width: 0;
+      padding: 17px 0 22px;
+      border-top: 1px solid var(--rule);
+      background: var(--canvas);
+      color: var(--ink);
+    }
+
+    .palette-yellow {
+      --canvas: #FFFFFF;
+      --surface: #F4F5F3;
+      --ink: #181818;
+      --secondary: #565656;
+      --rule: #D7D7D4;
+      --accent: #F2C300;
+      --button-ink: #181818;
+    }
+
+    .palette-green {
+      --canvas: #F7F9F5;
+      --surface: #FFFFFF;
+      --ink: #17231D;
+      --secondary: #56635B;
+      --rule: #D9DEDB;
+      --accent: #26513B;
+      --button-ink: #FFFFFF;
+    }
+
+    .pair-instrument {
+      --display: "Instrument Serif", Georgia, serif;
+      --text: "DM Sans", Arial, sans-serif;
+    }
+
+    .specimen-head {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      min-height: 62px;
+      align-items: start;
+    }
+
+    .specimen-number {
+      padding-top: 3px;
+      color: var(--secondary);
+      font-family: var(--text);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .specimen-head h2 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .specimen-head p {
+      margin: 4px 0 0;
+      color: var(--secondary);
+      font-family: var(--text);
+      font-size: 0.74rem;
+      line-height: 1.4;
+    }
+
+    .palette-tokens {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 10px;
+      margin: 17px 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .palette-tokens li {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      gap: 7px;
+      color: var(--secondary);
+      font-family: var(--text);
+      font-size: 0.61rem;
+      line-height: 1.25;
+    }
+
+    .swatch {
+      flex: 0 0 13px;
+      width: 13px;
+      height: 13px;
+      border: 1px solid var(--rule);
+      background: var(--swatch);
+    }
+
+    .palette-tokens code {
+      overflow: hidden;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sample {
+      min-height: 363px;
+      padding: clamp(17px, 2vw, 25px);
+      border-block: 1px solid var(--rule);
+      background: var(--surface);
+    }
+
+    .sample-eyebrow {
+      margin: 0 0 22px;
+      color: var(--secondary);
+      font-family: var(--text);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .sample h3 {
+      max-width: 12ch;
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: clamp(2.25rem, 3.6vw, 3.15rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 0.98;
+    }
+
+    .pair-instrument .sample h3 {
+      letter-spacing: -0.025em;
+      line-height: 0.94;
+    }
+
+    .sample-copy {
+      max-width: 37ch;
+      min-height: 78px;
+      margin: 0;
+      color: var(--secondary);
+      font-family: var(--text);
+      font-size: 0.92rem;
+      font-weight: 400;
+      line-height: 1.58;
+    }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin: 19px 0 23px;
+      padding: 10px 14px;
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      background: var(--accent);
+      color: var(--button-ink);
+      font-family: var(--text);
+      font-size: 0.76rem;
+      font-weight: 600;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+
+    .case-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .case-link:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .project-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 4px 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--text);
+    }
+
+    .project-title {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-context {
+      color: var(--secondary);
+      font-size: 0.66rem;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .contrast {
+      margin-top: 18px;
+      color: var(--secondary);
+      font-family: var(--text);
+      font-size: 0.65rem;
+    }
+
+    .contrast-title {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .contrast-list {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 12px;
+      margin: 0;
+    }
+
+    .contrast-list dt, .contrast-list dd { margin: 0; }
+    .contrast-list dd { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+    .page-note {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 44px;
+      padding-block: 17px 24px;
+      border-top: 1px solid var(--page-rule);
+      color: var(--page-secondary);
+      font-size: 0.72rem;
+      line-height: 1.55;
+    }
+
+    .page-note p { max-width: 680px; margin: 0; }
+    .page-note a { color: var(--page-ink); text-underline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .page { width: min(100% - 32px, var(--page-max)); }
+      .specimens { column-gap: 20px; }
+      .sample { min-height: 375px; padding: 18px; }
+      .sample h3 { font-size: clamp(2.2rem, 5vw, 2.8rem); }
+      .palette-tokens { gap: 8px 6px; }
+      .palette-tokens li { font-size: 0.58rem; }
+    }
+
+    @media (max-width: 680px) {
+      .page { width: min(100% - 28px, 520px); }
+      .masthead { padding-block: 15px; }
+      .intro { grid-template-columns: 1fr; row-gap: 18px; padding-block: 36px 30px; }
+      .intro-kicker { margin-bottom: 13px; }
+      h1 { font-size: clamp(2.65rem, 13vw, 4.1rem); }
+      .intro-copy { max-width: 44ch; font-size: 0.94rem; }
+      .key { grid-template-columns: 1fr; margin-bottom: 26px; }
+      .key-item { min-height: 42px; padding-block: 9px; }
+      .key-item + .key-item { border-top: 1px solid var(--page-rule); border-left: 0; padding-left: 0; }
+      .specimens { grid-template-columns: 1fr; row-gap: 25px; }
+      .specimen { padding-top: 15px; }
+      .specimen-head { min-height: 54px; }
+      .palette-tokens { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px 6px; margin-block: 13px 15px; }
+      .palette-tokens li { gap: 5px; font-size: 0.58rem; }
+      .swatch { flex-basis: 12px; width: 12px; height: 12px; }
+      .sample { min-height: 0; padding: 19px 17px 17px; }
+      .sample-eyebrow { margin-bottom: 18px; }
+      .sample h3 { max-width: 13ch; font-size: clamp(2.4rem, 11.4vw, 3.2rem); }
+      .sample-copy { min-height: 0; max-width: 36ch; }
+      .case-link { margin-block: 18px 22px; }
+      .page-note { flex-direction: column; margin-top: 32px; }
+    }
+
+    @media (max-width: 370px) {
+      .page { width: calc(100% - 24px); }
+      .masthead { font-size: 0.62rem; }
+      .wordmark { font-size: 0.74rem; }
+      .sample h3 { font-size: 2.3rem; }
+      .palette-tokens { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="masthead">
+        <div class="wordmark">ARH<span>.</span> Digital</div>
+        <p>Phase 5 / Specimen 01</p>
+      </div>
+
+      <div class="intro">
+        <div>
+          <p class="intro-kicker">Neighbourhood Field Notes · Colour + type</p>
+          <h1>One real project.<br><em>Six different voices.</em></h1>
+        </div>
+        <p class="intro-copy">Same words in every sample. Only the colour direction and type pairing change. Compare how each one handles a real piece of local work without making it look like the same studio template.</p>
+      </div>
+
+      <div class="key" aria-label="Font pairing rows">
+        <div class="key-item"><span class="key-index">ROW 01</span><span>Newsreader + General Sans (Fontshare)</span></div>
+        <div class="key-item"><span class="key-index">ROW 02</span><span>Instrument Serif + DM Sans (Google Fonts)</span></div>
+      </div>
+    </header>
+
+    <section class="specimens" aria-label="Six colour and type combinations">
+      <article class="specimen palette-red pair-newsreader" aria-labelledby="specimen-01-title">
+        <header class="specimen-head">
+          <span class="specimen-number">01</span>
+          <div><h2 id="specimen-01-title">Precision Red</h2><p>Newsreader + General Sans</p></div>
+        </header>
+        <ul class="palette-tokens" aria-label="Precision Red colour tokens">
+          <li><span class="swatch" style="--swatch:#F7F8F7" aria-hidden="true"></span><code>canvas #F7F8F7</code></li>
+          <li><span class="swatch" style="--swatch:#FFFFFF" aria-hidden="true"></span><code>surface #FFFFFF</code></li>
+          <li><span class="swatch" style="--swatch:#181B1A" aria-hidden="true"></span><code>ink #181B1A</code></li>
+          <li><span class="swatch" style="--swatch:#59615D" aria-hidden="true"></span><code>secondary #59615D</code></li>
+          <li><span class="swatch" style="--swatch:#D9DEDB" aria-hidden="true"></span><code>rule #D9DEDB</code></li>
+          <li><span class="swatch" style="--swatch:#C73722" aria-hidden="true"></span><code>accent #C73722</code></li>
+        </ul>
+        <div class="sample">
+          <p class="sample-eyebrow">ARH / Work 01</p>
+          <h3>Shabibi Juice,<br>in full colour.</h3>
+          <p class="sample-copy">Bring Shabibi Juice’s colourful identity online and make the business easy to explore.</p>
+          <a class="case-link" href="../works.html#shabibi">View the case study <span aria-hidden="true">↗</span></a>
+          <div class="project-line"><span class="project-title">Shabibi Juice</span><span class="project-context">Juice bar / Jeddah</span></div>
+        </div>
+        <div class="contrast">
+          <p class="contrast-title">Text contrast · ratio</p>
+          <dl class="contrast-list">
+            <dt>Ink on canvas</dt><dd>16.29:1</dd>
+            <dt>Secondary on canvas</dt><dd>5.99:1</dd>
+            <dt>Ink on surface</dt><dd>17.35:1</dd>
+            <dt>Secondary on surface</dt><dd>6.38:1</dd>
+            <dt>Button label on accent</dt><dd>5.25:1</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="specimen palette-yellow pair-newsreader" aria-labelledby="specimen-02-title">
+        <header class="specimen-head">
+          <span class="specimen-number">02</span>
+          <div><h2 id="specimen-02-title">Yellow Mark</h2><p>Newsreader + General Sans</p></div>
+        </header>
+        <ul class="palette-tokens" aria-label="Yellow Mark colour tokens">
+          <li><span class="swatch" style="--swatch:#FFFFFF" aria-hidden="true"></span><code>canvas #FFFFFF</code></li>
+          <li><span class="swatch" style="--swatch:#F4F5F3" aria-hidden="true"></span><code>surface #F4F5F3</code></li>
+          <li><span class="swatch" style="--swatch:#181818" aria-hidden="true"></span><code>ink #181818</code></li>
+          <li><span class="swatch" style="--swatch:#565656" aria-hidden="true"></span><code>secondary #565656</code></li>
+          <li><span class="swatch" style="--swatch:#D7D7D4" aria-hidden="true"></span><code>rule #D7D7D4</code></li>
+          <li><span class="swatch" style="--swatch:#F2C300" aria-hidden="true"></span><code>yellow #F2C300</code></li>
+        </ul>
+        <div class="sample">
+          <p class="sample-eyebrow">ARH / Work 01</p>
+          <h3>Shabibi Juice,<br>in full colour.</h3>
+          <p class="sample-copy">Bring Shabibi Juice’s colourful identity online and make the business easy to explore.</p>
+          <a class="case-link" href="../works.html#shabibi">View the case study <span aria-hidden="true">↗</span></a>
+          <div class="project-line"><span class="project-title">Shabibi Juice</span><span class="project-context">Juice bar / Jeddah</span></div>
+        </div>
+        <div class="contrast">
+          <p class="contrast-title">Text contrast · ratio</p>
+          <dl class="contrast-list">
+            <dt>Ink on canvas</dt><dd>17.76:1</dd>
+            <dt>Secondary on canvas</dt><dd>7.34:1</dd>
+            <dt>Ink on surface</dt><dd>16.24:1</dd>
+            <dt>Secondary on surface</dt><dd>6.71:1</dd>
+            <dt>Button label on accent</dt><dd>10.64:1</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="specimen palette-green pair-newsreader" aria-labelledby="specimen-03-title">
+        <header class="specimen-head">
+          <span class="specimen-number">03</span>
+          <div><h2 id="specimen-03-title">Field Green</h2><p>Newsreader + General Sans</p></div>
+        </header>
+        <ul class="palette-tokens" aria-label="Field Green colour tokens">
+          <li><span class="swatch" style="--swatch:#F7F9F5" aria-hidden="true"></span><code>canvas #F7F9F5</code></li>
+          <li><span class="swatch" style="--swatch:#FFFFFF" aria-hidden="true"></span><code>surface #FFFFFF</code></li>
+          <li><span class="swatch" style="--swatch:#17231D" aria-hidden="true"></span><code>ink #17231D</code></li>
+          <li><span class="swatch" style="--swatch:#56635B" aria-hidden="true"></span><code>secondary #56635B</code></li>
+          <li><span class="swatch" style="--swatch:#26513B" aria-hidden="true"></span><code>forest #26513B</code></li>
+          <li><span class="swatch" style="--swatch:#B7CA00" aria-hidden="true"></span><code>chartreuse #B7CA00</code></li>
+        </ul>
+        <div class="sample">
+          <p class="sample-eyebrow">ARH / Work 01</p>
+          <h3>Shabibi Juice,<br>in full colour.</h3>
+          <p class="sample-copy">Bring Shabibi Juice’s colourful identity online and make the business easy to explore.</p>
+          <a class="case-link" href="../works.html#shabibi">View the case study <span aria-hidden="true">↗</span></a>
+          <div class="project-line"><span class="project-title">Shabibi Juice</span><span class="project-context">Juice bar / Jeddah</span></div>
+        </div>
+        <div class="contrast">
+          <p class="contrast-title">Text contrast · ratio</p>
+          <dl class="contrast-list">
+            <dt>Ink on canvas</dt><dd>15.31:1</dd>
+            <dt>Secondary on canvas</dt><dd>5.95:1</dd>
+            <dt>Ink on surface</dt><dd>16.22:1</dd>
+            <dt>Secondary on surface</dt><dd>6.30:1</dd>
+            <dt>Button label on accent</dt><dd>9.04:1</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="specimen palette-red pair-instrument" aria-labelledby="specimen-04-title">
+        <header class="specimen-head">
+          <span class="specimen-number">04</span>
+          <div><h2 id="specimen-04-title">Precision Red</h2><p>Instrument Serif + DM Sans</p></div>
+        </header>
+        <ul class="palette-tokens" aria-label="Precision Red colour tokens">
+          <li><span class="swatch" style="--swatch:#F7F8F7" aria-hidden="true"></span><code>canvas #F7F8F7</code></li>
+          <li><span class="swatch" style="--swatch:#FFFFFF" aria-hidden="true"></span><code>surface #FFFFFF</code></li>
+          <li><span class="swatch" style="--swatch:#181B1A" aria-hidden="true"></span><code>ink #181B1A</code></li>
+          <li><span class="swatch" style="--swatch:#59615D" aria-hidden="true"></span><code>secondary #59615D</code></li>
+          <li><span class="swatch" style="--swatch:#D9DEDB" aria-hidden="true"></span><code>rule #D9DEDB</code></li>
+          <li><span class="swatch" style="--swatch:#C73722" aria-hidden="true"></span><code>accent #C73722</code></li>
+        </ul>
+        <div class="sample">
+          <p class="sample-eyebrow">ARH / Work 01</p>
+          <h3>Shabibi Juice,<br>in full colour.</h3>
+          <p class="sample-copy">Bring Shabibi Juice’s colourful identity online and make the business easy to explore.</p>
+          <a class="case-link" href="../works.html#shabibi">View the case study <span aria-hidden="true">↗</span></a>
+          <div class="project-line"><span class="project-title">Shabibi Juice</span><span class="project-context">Juice bar / Jeddah</span></div>
+        </div>
+        <div class="contrast">
+          <p class="contrast-title">Text contrast · ratio</p>
+          <dl class="contrast-list">
+            <dt>Ink on canvas</dt><dd>16.29:1</dd>
+            <dt>Secondary on canvas</dt><dd>5.99:1</dd>
+            <dt>Ink on surface</dt><dd>17.35:1</dd>
+            <dt>Secondary on surface</dt><dd>6.38:1</dd>
+            <dt>Button label on accent</dt><dd>5.25:1</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="specimen palette-yellow pair-instrument" aria-labelledby="specimen-05-title">
+        <header class="specimen-head">
+          <span class="specimen-number">05</span>
+          <div><h2 id="specimen-05-title">Yellow Mark</h2><p>Instrument Serif + DM Sans</p></div>
+        </header>
+        <ul class="palette-tokens" aria-label="Yellow Mark colour tokens">
+          <li><span class="swatch" style="--swatch:#FFFFFF" aria-hidden="true"></span><code>canvas #FFFFFF</code></li>
+          <li><span class="swatch" style="--swatch:#F4F5F3" aria-hidden="true"></span><code>surface #F4F5F3</code></li>
+          <li><span class="swatch" style="--swatch:#181818" aria-hidden="true"></span><code>ink #181818</code></li>
+          <li><span class="swatch" style="--swatch:#565656" aria-hidden="true"></span><code>secondary #565656</code></li>
+          <li><span class="swatch" style="--swatch:#D7D7D4" aria-hidden="true"></span><code>rule #D7D7D4</code></li>
+          <li><span class="swatch" style="--swatch:#F2C300" aria-hidden="true"></span><code>yellow #F2C300</code></li>
+        </ul>
+        <div class="sample">
+          <p class="sample-eyebrow">ARH / Work 01</p>
+          <h3>Shabibi Juice,<br>in full colour.</h3>
+          <p class="sample-copy">Bring Shabibi Juice’s colourful identity online and make the business easy to explore.</p>
+          <a class="case-link" href="../works.html#shabibi">View the case study <span aria-hidden="true">↗</span></a>
+          <div class="project-line"><span class="project-title">Shabibi Juice</span><span class="project-context">Juice bar / Jeddah</span></div>
+        </div>
+        <div class="contrast">
+          <p class="contrast-title">Text contrast · ratio</p>
+          <dl class="contrast-list">
+            <dt>Ink on canvas</dt><dd>17.76:1</dd>
+            <dt>Secondary on canvas</dt><dd>7.34:1</dd>
+            <dt>Ink on surface</dt><dd>16.24:1</dd>
+            <dt>Secondary on surface</dt><dd>6.71:1</dd>
+            <dt>Button label on accent</dt><dd>10.64:1</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="specimen palette-green pair-instrument" aria-labelledby="specimen-06-title">
+        <header class="specimen-head">
+          <span class="specimen-number">06</span>
+          <div><h2 id="specimen-06-title">Field Green</h2><p>Instrument Serif + DM Sans</p></div>
+        </header>
+        <ul class="palette-tokens" aria-label="Field Green colour tokens">
+          <li><span class="swatch" style="--swatch:#F7F9F5" aria-hidden="true"></span><code>canvas #F7F9F5</code></li>
+          <li><span class="swatch" style="--swatch:#FFFFFF" aria-hidden="true"></span><code>surface #FFFFFF</code></li>
+          <li><span class="swatch" style="--swatch:#17231D" aria-hidden="true"></span><code>ink #17231D</code></li>
+          <li><span class="swatch" style="--swatch:#56635B" aria-hidden="true"></span><code>secondary #56635B</code></li>
+          <li><span class="swatch" style="--swatch:#26513B" aria-hidden="true"></span><code>forest #26513B</code></li>
+          <li><span class="swatch" style="--swatch:#B7CA00" aria-hidden="true"></span><code>chartreuse #B7CA00</code></li>
+        </ul>
+        <div class="sample">
+          <p class="sample-eyebrow">ARH / Work 01</p>
+          <h3>Shabibi Juice,<br>in full colour.</h3>
+          <p class="sample-copy">Bring Shabibi Juice’s colourful identity online and make the business easy to explore.</p>
+          <a class="case-link" href="../works.html#shabibi">View the case study <span aria-hidden="true">↗</span></a>
+          <div class="project-line"><span class="project-title">Shabibi Juice</span><span class="project-context">Juice bar / Jeddah</span></div>
+        </div>
+        <div class="contrast">
+          <p class="contrast-title">Text contrast · ratio</p>
+          <dl class="contrast-list">
+            <dt>Ink on canvas</dt><dd>15.31:1</dd>
+            <dt>Secondary on canvas</dt><dd>5.95:1</dd>
+            <dt>Ink on surface</dt><dd>16.22:1</dd>
+            <dt>Secondary on surface</dt><dd>6.30:1</dd>
+            <dt>Button label on accent</dt><dd>9.04:1</dd>
+          </dl>
+        </div>
+      </article>
+    </section>
+
+    <footer class="page-note">
+      <p>The case-study copy is from ARH’s existing Shabibi Juice work. The three local Google Fonts files are included unchanged with their OFL notices. General Sans is loaded from Fontshare’s official stylesheet and needs internet; its used 400 and 600 files are 23,084 and 23,092 bytes, respectively, and are not bundled in this public repository.</p>
+      <p><a href="https://www.fontshare.com/fonts/general-sans">General Sans on Fontshare</a> · <a href="https://www.fontshare.com/licenses/closed-source">ITF Free Font License</a></p>
+    </footer>
+  </main>
+</body>
+</html>
