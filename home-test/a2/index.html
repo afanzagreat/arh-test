@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ARH builds custom websites for local businesses.">
+  <title>ARH — Custom websites for local businesses</title>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap">
+  <style>
+    @font-face {
+      font-family: "Newsreader";
+      src: url("../../specimen/fonts/newsreader-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: light;
+      --ink: #111111;
+      --muted: #4f4f4f;
+      --line: #c9c9c7;
+      --paper: #ffffff;
+      --accent: #26513B;
+      --max: 1440px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "General Sans", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    a { color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 5px;
+    }
+    .skip-link {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 1rem;
+      transform: translateY(-150%);
+      padding: .7rem 1rem;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .skip-link:focus { transform: translateY(1rem); }
+    .wrap {
+      width: min(calc(100% - 48px), var(--max));
+      margin-inline: auto;
+    }
+
+    header { border-bottom: 1px solid var(--line); }
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .wordmark {
+      flex: 0 0 auto;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -.07em;
+      text-decoration: none;
+    }
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: .55rem clamp(.65rem, 1.6vw, 1.35rem);
+      font-size: .9rem;
+    }
+    .main-nav a, .footer-links a {
+      text-underline-offset: .22em;
+      text-decoration-thickness: .07em;
+    }
+
+    h1, h2, p { margin-top: 0; }
+    h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 400; }
+    .hero {
+      min-height: calc(100svh - 73px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: clamp(3rem, 7.5vh, 6rem);
+    }
+    .hero-kicker {
+      margin: 0 0 1.3rem;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    h1 {
+      max-width: 1380px;
+      margin-bottom: clamp(1.8rem, 3.5vh, 2.8rem);
+      font-size: clamp(4.2rem, 11.4vw, 10.6rem);
+      line-height: .83;
+      letter-spacing: -.075em;
+    }
+    h1 span { display: block; }
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: 1100px;
+    }
+    .hero-bottom p {
+      max-width: 34rem;
+      margin: 0;
+      font-size: clamp(1.05rem, 1.55vw, 1.25rem);
+    }
+    .button {
+      display: inline-block;
+      flex: 0 0 auto;
+      padding: .9rem 1.25rem;
+      border: 2px solid var(--accent);
+      background: var(--accent);
+      color: var(--paper);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .button:hover { background: #1f422f; border-color: #1f422f; }
+    .button:focus-visible { outline-color: var(--ink); }
+
+    section { scroll-margin-top: 1rem; }
+    .belief {
+      padding-block: 5rem 6rem;
+      border-top: 1px solid var(--ink);
+    }
+    .belief-label {
+      margin: 0 0 1.2rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .template-copy p {
+      max-width: 52rem;
+      margin: 0 0 .45rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .belief-own {
+      max-width: 1080px;
+      margin-top: 3rem;
+      padding-top: 1.4rem;
+      border-top: 2px solid var(--accent);
+    }
+    .belief-own h2 {
+      max-width: 13ch;
+      margin: 0;
+      font-size: clamp(3.2rem, 7.8vw, 7.3rem);
+      line-height: .88;
+      letter-spacing: -.065em;
+    }
+    .accent-word { color: var(--accent); }
+
+    .content-section {
+      padding-block: 4.5rem 5rem;
+      border-top: 1px solid var(--ink);
+    }
+    .section-heading {
+      margin-bottom: 2rem;
+      font-size: clamp(3rem, 6.8vw, 6.2rem);
+      line-height: .9;
+      letter-spacing: -.065em;
+    }
+    .service-list {
+      max-width: 1050px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .service-list li {
+      padding-block: 1.15rem;
+      border-top: 1px solid var(--line);
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    }
+
+    .steps { max-width: 1050px; }
+    .step {
+      display: grid;
+      grid-template-columns: minmax(7rem, .3fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      padding-block: 1.2rem;
+      border-top: 1px solid var(--line);
+    }
+    .step p { margin: 0; font-size: clamp(1.05rem, 1.7vw, 1.25rem); }
+    .step-lead { font-weight: 600; }
+
+    .contact {
+      padding-block: 5rem 6rem;
+      border-top: 1px solid var(--ink);
+    }
+    .contact-inner { max-width: 1100px; }
+    .contact h2 {
+      max-width: 12ch;
+      margin-bottom: 1.6rem;
+      font-size: clamp(3.6rem, 9vw, 8rem);
+      line-height: .86;
+      letter-spacing: -.07em;
+    }
+    .contact-email { margin: 0 0 1.5rem; font-size: 1.1rem; }
+    .contact-email a { text-underline-offset: .2em; }
+
+    footer { padding-block: 1.4rem 2rem; border-top: 1px solid var(--ink); }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem 2rem;
+      align-items: start;
+    }
+    .footer-about { margin: 0; max-width: 28rem; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem 1.1rem;
+    }
+    .footer-email {
+      grid-column: 1 / -1;
+      width: fit-content;
+      color: var(--muted);
+      text-underline-offset: .2em;
+    }
+
+    @media (max-width: 720px) {
+      .wrap { width: min(calc(100% - 32px), var(--max)); }
+      .header-inner { min-height: 64px; gap: .65rem; }
+      .main-nav { gap: .35rem .8rem; font-size: .82rem; }
+      .hero { min-height: calc(100svh - 65px); padding-block: 3rem 4rem; }
+      h1 { font-size: clamp(3.1rem, 13.6vw, 5.4rem); line-height: .86; margin-bottom: 1.8rem; }
+      .hero-bottom { display: block; }
+      .hero-bottom p { max-width: 30rem; margin-bottom: 1.3rem; }
+      .belief { padding-block: 3.5rem 4rem; }
+      .belief-own { margin-top: 2.5rem; }
+      .belief-own h2 { font-size: clamp(3rem, 12.4vw, 5.5rem); }
+      .content-section { padding-block: 3.5rem 4rem; }
+      .section-heading { margin-bottom: 1.5rem; }
+      .step { grid-template-columns: 1fr; gap: .2rem; }
+      .contact { padding-block: 3.5rem 4rem; }
+      .contact h2 { font-size: clamp(3.4rem, 14vw, 6.2rem); }
+      .footer-inner { grid-template-columns: 1fr; gap: .8rem; }
+      .footer-email { grid-column: auto; }
+    }
+    @media (max-width: 390px) {
+      .wrap { width: calc(100% - 28px); }
+      .header-inner { align-items: flex-start; padding-block: .85rem; }
+      .main-nav { max-width: 255px; gap: .3rem .68rem; font-size: .78rem; }
+      h1 { font-size: clamp(2.9rem, 13.75vw, 3.25rem); }
+      .hero-kicker { font-size: .94rem; }
+      .belief-own h2 { font-size: clamp(2.8rem, 12.6vw, 3.4rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header>
+    <div class="wrap header-inner">
+      <a class="wordmark" href="index.html" aria-label="ARH home">ARH.</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../../works.html">See our work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <p class="hero-kicker">Custom websites for local businesses</p>
+      <h1 id="hero-title"><span>ARH builds</span><span>custom websites</span><span>for local</span><span>businesses.</span></h1>
+      <div class="hero-bottom">
+        <p>We build a straightforward website around your business, so people can see what you offer and how to reach you.</p>
+        <a class="button" href="#contact">Start a project</a>
+      </div>
+    </section>
+
+    <section class="belief wrap" id="about" aria-labelledby="belief-title">
+      <p class="belief-label">Example of template copy</p>
+      <div class="template-copy" aria-label="The same generic template sentence repeated three times">
+        <p>Welcome to [Business Name]. We offer quality service you can trust.</p>
+        <p>Welcome to [Business Name]. We offer quality service you can trust.</p>
+        <p>Welcome to [Business Name]. We offer quality service you can trust.</p>
+      </div>
+      <div class="belief-own">
+        <h2 id="belief-title">Every business deserves its <span class="accent-word">own</span> look online.</h2>
+      </div>
+    </section>
+
+    <section class="content-section" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <h2 class="section-heading" id="services-title">What ARH does</h2>
+        <ul class="service-list">
+          <li>Custom websites for local businesses</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="process-title">
+      <div class="wrap">
+        <h2 class="section-heading" id="process-title">How it works</h2>
+        <div class="steps">
+          <div class="step"><p class="step-lead">First</p><p>We talk about your business, your customers, and what the website needs to do.</p></div>
+          <div class="step"><p class="step-lead">Then</p><p>We design the site around your business and share the direction with you.</p></div>
+          <div class="step"><p class="step-lead">Finally</p><p>We launch the finished website.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-inner">
+        <h2 id="contact-title">Need a website for your business? Let’s talk.</h2>
+        <p class="contact-email">Email: <a href="mailto:[PLACEHOLDER]">[PLACEHOLDER]</a></p>
+        <a class="button" href="mailto:[PLACEHOLDER]">Start a project</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p class="footer-about">ARH builds custom websites for local businesses.</p>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="footer-email" href="mailto:[PLACEHOLDER]">[PLACEHOLDER]</a>
+    </div>
+  </footer>
+</body>
+</html>
