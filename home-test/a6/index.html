@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#F8E4DE">
+  <meta name="theme-color" content="#000F08">
   <meta name="description" content="ARH builds custom websites for local businesses, with the useful details up front and a clear next step.">
   <title>ARH — Custom websites for local businesses</title>
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <style>
     :root {
       color-scheme: light;
-      --paper: #F8E4DE;
-      --paper-2: #F0D9D3;
+      --night: #000F08;
+      --night-soft: #071A12;
+      --paper: #fffaf0;
+      --paper-2: #061A12;
       --ink: #000F08;
-      --muted: #45554D;
+      --muted: #C2CDC6;
       --red: #FB3640;
-      --red-dark: #BC202D;
+      --red-dark: #FF747C;
       --acid: #FFEB3B;
-      --line: rgba(0, 15, 8, .23);
+      --line: rgba(255, 250, 240, .23);
       --white: #fffaf0;
       --wrap: 1380px;
       --ease: cubic-bezier(.2, .78, .22, 1);
@@ -424,6 +426,36 @@
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
       .ticker-track { animation: none !important; }
       .custom-cursor { display: none !important; }
+    }
+
+    /* Night / Imperial Red palette: keep the primary canvas dark, with red as the signal color. */
+    html, body { background: var(--night); }
+    body { color: var(--white); }
+    .skip-link { background: var(--red); color: var(--ink); }
+    .site-header { background: rgba(0,15,8,.96); color: var(--white); }
+    .site-header .nav-cta { border-color: var(--red); background: var(--red); color: var(--ink); }
+    .site-header .nav-cta:hover { border-color: var(--acid); background: var(--acid); }
+    .hero { background: var(--night); color: var(--white); }
+    .hero .hero-cta { border-color: var(--red); background: var(--red); color: var(--ink); }
+    .hero-meta, .hero-description, .hero-caption, .scroll-cue { color: var(--muted); }
+    .hero-art .orbit-line { stroke: var(--white); }
+    .hero-art .sun { stroke: var(--white); }
+    .hero-art .sun-inner, .hero-art .orbit-star { stroke: var(--white); }
+    .hero-art circle:nth-of-type(3) { fill: var(--night); stroke: var(--white); }
+    .hero-art path[stroke="var(--ink)"] { stroke: var(--white); }
+    .about-section { background: var(--night); color: var(--white); }
+    .about-aside { color: var(--ink); }
+    .process-section { background: var(--night-soft); color: var(--white); }
+    .mascot-section { color: var(--ink); }
+    .mascot-title em { color: #9F1724; }
+    .mascot-hint { color: #45554D; }
+    .site-footer { background: var(--night); color: var(--white); }
+    .custom-cursor .cursor-ring { background: rgba(255,250,240,.18); border-color: var(--white); color: var(--white); }
+    .menu-toggle { border-color: var(--white); }
+    .menu-toggle span { background: var(--white); }
+    @media (max-width: 720px) {
+      .primary-nav { background: var(--night); color: var(--white); border-bottom-color: var(--white); }
+      .primary-nav a { border-bottom-color: var(--line); }
     }
   </style>
 </head>
